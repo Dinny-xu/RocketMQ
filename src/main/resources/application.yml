@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rocketmq?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: plaxyy0708
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      max-wait: 30000
+      query-timeout: 10
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+
