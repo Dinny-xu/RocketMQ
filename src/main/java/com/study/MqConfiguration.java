@@ -2,12 +2,12 @@ package com.study;
 
 
 import com.alibaba.fastjson.JSON;
-import com.study.mq.ConnectionConfig;
-import com.study.mq.RocketMessage;
-import com.study.mq.filter.EventModel;
-import com.study.mq.filter.MessageFilter;
-import com.study.mq.spring.AiMqConfiguration;
-import com.study.mq.spring.SpringMqProperties;
+import com.study.onsmq.ConnectionConfig;
+import com.study.onsmq.RocketMessage;
+import com.study.onsmq.filter.EventModel;
+import com.study.onsmq.filter.MessageFilter;
+import com.study.onsmq.spring.AiMqConfiguration;
+import com.study.onsmq.spring.SpringMqProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;

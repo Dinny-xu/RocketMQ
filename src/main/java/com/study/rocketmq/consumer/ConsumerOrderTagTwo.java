@@ -21,7 +21,7 @@ public class ConsumerOrderTagTwo {
 
     public static void main(String[] args) throws Exception {
 
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumerOrderTwo");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("sync-1");
         consumer.setNamesrvAddr("49.233.26.33:9876");
         consumer.subscribe("myTopicA", "tag2");
         consumer.registerMessageListener(new MessageListenerOrderly() {

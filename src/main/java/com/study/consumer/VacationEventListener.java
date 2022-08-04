@@ -1,6 +1,6 @@
 package com.study.consumer;
 
-import com.study.mq.consumer.MessageListener;
+import com.study.onsmq.consumer.MessageListener;
 import com.study.send.VacateAuditMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

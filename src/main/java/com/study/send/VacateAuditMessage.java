@@ -1,7 +1,7 @@
 package com.study.send;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.study.mq.RocketMessage;
+import com.study.onsmq.RocketMessage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

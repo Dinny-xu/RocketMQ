@@ -1,42 +1,27 @@
 package com.study.rocketmq.consumer;
 
+
 import com.study.utils.RocketMqNameSrvAddr;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.message.MessageExt;
 
-/**
- * @author dinny-xu
- */
 @Slf4j
-public class AsyncConsumerOne {
+public class OnewayConsumer {
 
-    @SneakyThrows
-    public static void main(String[] args) {
 
-        // 定义一个pull消费者
-        // DefaultLitePullConsumer consumer = new DefaultLitePullConsumer("syncSend");
+    public static void main(String[] args) throws MQClientException {
         // 定义一个push消费者
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("sync-2");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("xy");
         // 指定nameServer
         consumer.setNamesrvAddr(RocketMqNameSrvAddr.NAME_SERVER);
         // 指定从第一条消息开始消费
 //        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
         // 指定消费topic与tag
-        consumer.subscribe("myTopicB", "tag1");
-        // 指定采用"广播模式"进行消费，默认为"集群模式"
-//        consumer.setMessageModel(MessageModel.BROADCASTING);
-
-//        consumer.setAdjustThreadPoolNumsThreshold(1);
-//        consumer.setConsumeThreadMax(1);
-//        consumer.setConsumeThreadMin(1);// 最小线程消费数
-
-        // 注册消息监听器(并发消费)
-        // 一旦broker中有了其订阅的消息就会触发该方法的执行，
-        // 其返回值为当前consumer消费的状态
+        consumer.subscribe("single", "someTag");
 
         consumer.registerMessageListener((MessageListenerConcurrently) (msgList, context) -> {
             // 逐条消费消息
@@ -51,4 +36,5 @@ public class AsyncConsumerOne {
         consumer.start();
         System.out.println("Consumer Started");
     }
+
 }
